@@ -100,46 +100,46 @@
   background: var(--pk-color-surface-blue);
 }
 
-/* Hover: varredura azul → transparente que cresce da esquerda e some ao chegar no fim */
+/* Hover "glare": faixa azul com bordas transparentes que atravessa a linha da esquerda para a direita */
+.pk-como__step {
+  overflow: hidden;
+}
+
 .pk-como__step::before {
   content: '';
   position: absolute;
-  inset: 0;
+  top: -20%;
+  bottom: -20%;
+  left: 0;
+  width: 55%;
   z-index: -1;
-  border-radius: inherit;
-  background: linear-gradient(90deg, var(--pk-color-surface-blue) 0%, rgba(236, 243, 254, 0) 100%);
-  transform: scaleX(0);
-  transform-origin: left center;
+  background: linear-gradient(
+    90deg,
+    rgba(236, 243, 254, 0) 0%,
+    var(--pk-color-surface-blue) 50%,
+    rgba(236, 243, 254, 0) 100%
+  );
+  transform: translateX(-120%) skewX(-18deg);
   opacity: 0;
   pointer-events: none;
 }
 
 @media (hover: hover) {
   .pk-como__step:not(.pk-como__step--active):hover::before {
-    animation: pk-step-sweep 900ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    animation: pk-step-glare 950ms cubic-bezier(0.33, 1, 0.68, 1) forwards;
   }
 }
 
-@keyframes pk-step-sweep {
+@keyframes pk-step-glare {
   0% {
-    transform: scaleX(0);
-    opacity: 1;
-  }
-
-  60% {
-    transform: scaleX(1);
+    transform: translateX(-120%) skewX(-18deg);
     opacity: 1;
   }
 
   100% {
-    transform: scaleX(1);
-    opacity: 0;
+    transform: translateX(220%) skewX(-18deg);
+    opacity: 1;
   }
-}
-
-.pk-como__step:focus-visible {
-  outline: 2px solid var(--pk-color-primary);
-  outline-offset: 2px;
 }
 
 .pk-como__step-number {
