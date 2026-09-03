@@ -108,22 +108,23 @@
   color: var(--pk-color-text);
 }
 
+/* Com "reduzir movimento" ativo no sistema: mesma fileira, sem rolar sozinha; o usuário rola à mão */
 @media (prefers-reduced-motion: reduce) {
+  .pk-depo__row {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    padding-bottom: var(--pk-space-3);
+  }
+
   .pk-depo__track {
     animation: none;
-    flex-wrap: wrap;
-    width: auto;
-    justify-content: center;
+    align-items: stretch;
   }
 
   /* Sem animação, mostra só a primeira cópia dos cards */
   .pk-depo__track > :nth-child(n + 25) {
     display: none;
-  }
-
-  .pk-depo__marquee {
-    -webkit-mask-image: none;
-    mask-image: none;
   }
 }
 
