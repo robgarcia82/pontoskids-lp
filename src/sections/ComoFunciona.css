@@ -115,9 +115,9 @@
   z-index: -1;
   background: linear-gradient(
     90deg,
-    rgba(236, 243, 254, 0) 0%,
-    var(--pk-color-surface-blue) 50%,
-    rgba(236, 243, 254, 0) 100%
+    rgba(58, 134, 255, 0) 0%,
+    rgba(58, 134, 255, 0.22) 50%,
+    rgba(58, 134, 255, 0) 100%
   );
   transform: translateX(-120%) skewX(-18deg);
   opacity: 0;
@@ -126,7 +126,7 @@
 
 @media (hover: hover) {
   .pk-como__step:not(.pk-como__step--active):hover::before {
-    animation: pk-step-glare 950ms cubic-bezier(0.33, 1, 0.68, 1) forwards;
+    animation: pk-step-glare 1200ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
   }
 }
 
