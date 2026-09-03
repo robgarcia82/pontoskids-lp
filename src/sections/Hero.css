@@ -242,7 +242,7 @@
 @media (max-width: 767px) {
   .pk-hero {
     padding-top: 96px;
-    padding-bottom: 56px;
+    padding-bottom: 72px;
   }
 
   .pk-hero__title {
@@ -271,7 +271,8 @@
     height: auto;
   }
 
+  /* No mobile a ilustração da família fica de fora: o hero termina nos botões */
   .pk-hero__figure {
-    width: min(100%, 340px);
+    display: none;
   }
 }
