@@ -46,6 +46,8 @@ const fragment = head
   .replace(/<meta charset[^>]*>\n?/, '')
   .replace(/<meta name="viewport"[^>]*>\n?/, '')
   .replace(/<title>[^<]*<\/title>/, '<title>PontosKids</title>') // nome curto para a galeria do Artifact
+  .replace(/<link rel="(?:icon|apple-touch-icon)"[^>]*>\n?/g, '') // o Artifact tem favicon próprio
+  .replace(/<meta name="theme-color"[^>]*>\n?/, '')
   .trim() + '\n' + body.trim();
 
 mkdirSync(resolve(root, 'dist-single'), { recursive: true });
