@@ -242,7 +242,7 @@
 @media (max-width: 767px) {
   .pk-hero {
     padding-top: calc(96px + env(safe-area-inset-top, 0px));
-    padding-bottom: 72px;
+    padding-bottom: 36px;
   }
 
   /* Bloco de texto 20px mais perto da família */
@@ -268,8 +268,8 @@
     gap: var(--pk-space-4);
   }
 
-  /* No mobile o CTA vive no botão fixo da base da tela */
-  .pk-hero__actions .pk-button {
+  /* No mobile o CTA vive no botão fixo da base da tela; sem botão e sem o link "Veja como funciona" */
+  .pk-hero__actions {
     display: none;
   }
 
