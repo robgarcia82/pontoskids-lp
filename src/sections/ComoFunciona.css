@@ -206,33 +206,16 @@
 
 }
 
-/* Opção A (mobile/tablet): título → indicadores → texto do passo → celular recortado
-   O conteúdo fica fixo (sticky) enquanto a rolagem dentro da seção avança os passos 01 → 03. */
+/* Opção A (mobile/tablet): título → abas 01/02/03 → texto do passo → celular recortado */
 @media (max-width: 1023px) {
   .pk-como {
-    padding-top: 0;
-    padding-bottom: 0;
+    padding-top: 120px;
   }
 
-  /* Espaçador real (padding não conta para o sticky): distância de rolagem dos 3 passos */
-  .pk-como::after {
-    content: '';
-    display: block;
-    height: 150vh;
-  }
-
-  /* Conteúdo travado ocupando a tela inteira, centralizado verticalmente */
   .pk-como__inner {
-    position: sticky;
-    top: 0;
-    height: 100vh;
-    height: 100dvh;
     flex-direction: column;
-    justify-content: center;
     align-items: stretch;
     gap: var(--pk-space-6);
-    padding-top: calc(16px + env(safe-area-inset-top, 0px));
-    padding-bottom: calc(96px + env(safe-area-inset-bottom, 0px)); /* espaço do botão fixo */
   }
 
   /* Os filhos do content viram itens diretos do inner para poder reordenar com o celular */
@@ -327,9 +310,13 @@
 }
 
 @media (max-width: 767px) {
+  .pk-como {
+    padding-top: 80px;
+  }
+
   .pk-como__phone {
     width: 280px;
-    height: 300px;
+    height: 320px;
   }
 
   .pk-como__phone-img {

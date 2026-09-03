@@ -61,36 +61,6 @@ export default function ComoFunciona() {
 
   const sectionRef = useRef<HTMLElement>(null);
 
-  // Mobile/tablet: o passo ativo acompanha a rolagem. Conforme a seção atravessa a tela,
-  // o indicador avança 01 → 02 → 03 e a tela do celular troca junto. Tocar num ponto ainda funciona.
-  useEffect(() => {
-    if (!isCompact) return;
-    const section = sectionRef.current;
-    if (!section) return;
-    let frame = 0;
-    const update = () => {
-      frame = 0;
-      const rect = section.getBoundingClientRect();
-      // A seção é mais alta que a tela e o conteúdo fica fixo (sticky): a rolagem "dentro" dela
-      // vai de 0 (topo da seção no topo da tela) a 1 (base da seção na base da tela).
-      const range = rect.height - window.innerHeight;
-      if (range <= 0) return;
-      const progress = -rect.top / range;
-      const next =
-        progress <= 0 ? 0 : progress >= 1 ? steps.length - 1 : Math.floor(progress * steps.length);
-      setActiveIndex((current) => (current === next ? current : next));
-    };
-    const onScroll = () => {
-      if (!frame) frame = window.requestAnimationFrame(update);
-    };
-    update();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => {
-      window.removeEventListener('scroll', onScroll);
-      if (frame) window.cancelAnimationFrame(frame);
-    };
-  }, [isCompact]);
-
   // Pré-carrega as telas só quando a seção se aproxima da viewport (não compete com o hero).
   useEffect(() => {
     const section = sectionRef.current;
