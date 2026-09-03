@@ -4,7 +4,7 @@
   left: 0;
   right: 0;
   z-index: 2;
-  padding-top: 40px;
+  padding-top: calc(40px + env(safe-area-inset-top, 0px));
 }
 
 .pk-header__logo {
@@ -35,7 +35,7 @@
 
 @media (max-width: 767px) {
   .pk-header {
-    padding-top: 24px;
+    padding-top: calc(24px + env(safe-area-inset-top, 0px));
   }
 
   .pk-header__logo img {

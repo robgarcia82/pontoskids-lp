@@ -127,6 +127,9 @@
   border-radius: var(--pk-radius-lg);
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
+  /* As faces trocam de visibilidade na metade do giro (640ms / 2): evita o ícone animado
+     da frente "vazar" pelo verso em navegadores que renderizam filhos animados em camada própria */
+  transition: visibility 0s linear 320ms;
 }
 
 .pk-dores__card-back {
@@ -135,6 +138,22 @@
   background: var(--pk-color-primary);
   color: var(--pk-color-on-primary);
   transform: rotateY(180deg);
+  visibility: hidden;
+}
+
+/* Verso à mostra: fixado por clique (sem hover) */
+.pk-dores__card.is-flipped .pk-dores__card-front {
+  visibility: hidden;
+}
+
+.pk-dores__card.is-flipped .pk-dores__card-back {
+  visibility: visible;
+}
+
+.pk-dores__card-icon-float,
+.pk-dores__card-icon {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .pk-dores__card--gray .pk-dores__card-front {
@@ -187,6 +206,16 @@
   /* Fixo no verso + hover: mostra a frente (o clique sempre muda algo visível) */
   .pk-dores__card.is-flipped:hover .pk-dores__card-inner {
     transform: rotateY(0deg);
+  }
+
+  .pk-dores__card:hover:not(.is-flipped) .pk-dores__card-front,
+  .pk-dores__card.is-flipped:hover .pk-dores__card-back {
+    visibility: hidden;
+  }
+
+  .pk-dores__card:hover:not(.is-flipped) .pk-dores__card-back,
+  .pk-dores__card.is-flipped:hover .pk-dores__card-front {
+    visibility: visible;
   }
 }
 
