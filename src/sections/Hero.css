@@ -245,29 +245,9 @@
     padding-bottom: 72px;
   }
 
-  /* Título menor com a família ao lado; texto e botões embaixo, na largura toda */
-  .pk-hero__inner {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 150px;
-    column-gap: var(--pk-space-3);
-    row-gap: var(--pk-space-6);
-    align-items: center;
-  }
-
-  .pk-hero__content {
-    display: contents;
-  }
-
   .pk-hero__title {
-    grid-column: 1;
-    grid-row: 1;
-    font-size: clamp(28px, 8vw, 34px);
+    font-size: clamp(36px, 10.5vw, 44px);
     letter-spacing: -0.04em;
-  }
-
-  .pk-hero__body {
-    grid-column: 1 / -1;
-    grid-row: 2;
   }
 
   .pk-hero__body {
@@ -291,10 +271,9 @@
     height: auto;
   }
 
+  /* No mobile a família vem antes do título */
   .pk-hero__figure {
-    grid-column: 2;
-    grid-row: 1;
-    width: 150px;
-    align-self: center;
+    order: -1;
+    width: min(100%, 340px);
   }
 }
