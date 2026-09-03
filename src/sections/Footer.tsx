@@ -49,7 +49,7 @@ export default function Footer() {
               Preparado para uma rotina mais tranquila?
             </h2>
             <p className="pk-footer__text" data-reveal="up" data-reveal-delay="250">
-              Monte os primeiros combinados em poucos minutos. Grátis para toda a família.
+              Monte os primeiros combinados em poucos minutos.
             </p>
 
             <div className="pk-footer__stores" data-reveal="up" data-reveal-delay="350">
