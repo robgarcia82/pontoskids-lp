@@ -86,7 +86,7 @@ export default function Faq() {
             <h2 id="faq-title" className="pk-faq__title pk-section-title" data-reveal="up" data-reveal-delay="100">
               Perguntas frequentes
             </h2>
-            <div data-reveal="up" data-reveal-delay="200">
+            <div className="pk-faq__cta" data-reveal="up" data-reveal-delay="200">
               <Button href="#criar-rotina">Criar minha rotina grátis</Button>
             </div>
           </div>

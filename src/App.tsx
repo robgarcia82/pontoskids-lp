@@ -8,6 +8,7 @@ import BlocoFinal from './sections/BlocoFinal';
 import Precos from './sections/Precos';
 import Faq from './sections/Faq';
 import Footer from './sections/Footer';
+import StickyCta from './components/StickyCta';
 import { useScrollReveal } from './hooks/useScrollReveal';
 
 export default function App() {
@@ -25,6 +26,7 @@ export default function App() {
       <Precos />
       <Faq />
       <Footer />
+      <StickyCta />
     </main>
   );
 }

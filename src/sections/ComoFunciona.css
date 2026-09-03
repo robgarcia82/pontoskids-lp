@@ -307,7 +307,7 @@
     font-size: 17px;
   }
 
-  .pk-como__content .pk-button {
-    width: 100% !important;
+  .pk-como__cta {
+    display: none;
   }
 }

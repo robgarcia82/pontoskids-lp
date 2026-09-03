@@ -262,8 +262,9 @@
     gap: var(--pk-space-4);
   }
 
+  /* No mobile o CTA vive no botão fixo da base da tela */
   .pk-hero__actions .pk-button {
-    width: 100% !important;
+    display: none;
   }
 
   .pk-hero__bg-line {
