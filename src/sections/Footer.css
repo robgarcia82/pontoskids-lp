@@ -108,7 +108,7 @@
 
 @media (hover: hover) {
   .pk-footer__store:hover {
-    background: #000;
+    background: var(--pk-color-text-strong);
     transform: translateY(-2px);
     box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
   }

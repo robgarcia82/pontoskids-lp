@@ -13,7 +13,7 @@
 }
 
 .pk-precos__title-muted {
-  color: #b4b9c4;
+  color: var(--pk-color-text-muted);
 }
 
 .pk-precos__grid {
@@ -93,7 +93,7 @@
 }
 
 .pk-precos__card--featured .pk-precos__price-value {
-  color: #8ab8ff;
+  color: var(--pk-color-primary-soft);
 }
 
 .pk-precos__price-suffix {
@@ -141,7 +141,7 @@
 }
 
 .pk-precos__card--featured .pk-precos__feature-icon {
-  color: #5dcaa5;
+  color: var(--pk-color-teal-soft);
 }
 
 .pk-precos__feature--off {
@@ -149,61 +149,12 @@
 }
 
 .pk-precos__feature--off .pk-precos__feature-icon {
-  color: #b4b9c4;
+  color: var(--pk-color-text-muted);
 }
 
-.pk-sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  white-space: nowrap;
-}
-
-/* Botão do card: contorno nos planos pagos, azul sólido no destaque */
+/* Botão do card (componente Button): ocupa a largura toda */
 .pk-precos__cta {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 56px;
-  padding: 0 var(--pk-space-6);
-  border-radius: var(--pk-radius-full);
-  border: 1.5px solid var(--pk-color-divider);
-  font-size: var(--pk-font-size-body);
-  font-weight: 700;
-  color: var(--pk-color-heading);
-  text-align: center;
-  transition:
-    background-color 200ms ease,
-    border-color 200ms ease,
-    color 200ms ease,
-    transform 200ms ease;
-}
-
-.pk-precos__card--featured .pk-precos__cta {
-  border-color: var(--pk-color-primary);
-  background: var(--pk-color-primary);
-  color: var(--pk-color-on-primary);
-  box-shadow: var(--pk-shadow-button-inset);
-}
-
-@media (hover: hover) {
-  .pk-precos__card:not(.pk-precos__card--featured) .pk-precos__cta:hover {
-    border-color: var(--pk-color-primary);
-    color: var(--pk-color-primary);
-  }
-
-  .pk-precos__card--featured .pk-precos__cta:hover {
-    background: var(--pk-color-primary-strong);
-    border-color: var(--pk-color-primary-strong);
-    transform: translateY(-2px);
-  }
-}
-
-.pk-precos__cta:focus-visible {
-  outline: 2px solid var(--pk-color-primary);
-  outline-offset: 3px;
+  width: 100%;
 }
 
 @media (max-width: 1251px) {

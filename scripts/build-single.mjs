@@ -28,8 +28,11 @@ let total = 0;
 // No JS as imagens aparecem como 'assets/x.png' (asset() prefixa a base em runtime e deixa data URIs passarem).
 html = html.replace(/(?<![A-Za-z0-9_\-./])\/?assets\/[A-Za-z0-9_\-./]+\.(?:png|webp|svg|jpg)/g, (match) => {
   if (seen.has(match)) return seen.get(match);
-  const file = resolve(publicDir, match.replace(/^\//, ''));
+  let file = resolve(publicDir, match.replace(/^\//, ''));
   if (!existsSync(file)) return match;
+  // PNG com par WebP: embute o WebP nos dois lugares (evita enviar a imagem duas vezes)
+  const webpTwin = file.replace(/\.png$/, '.webp');
+  if (file.endsWith('.png') && existsSync(webpTwin)) file = webpTwin;
   total += statSync(file).size;
   const uri = toDataUri(file);
   seen.set(match, uri);

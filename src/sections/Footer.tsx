@@ -23,6 +23,17 @@ function PlayIcon() {
   );
 }
 
+/**
+ * Destinos provisórios: as lojas e as páginas legais ainda não existem.
+ * Troque pelas URLs reais (App Store, Google Play, Privacidade, Termos) quando publicadas.
+ */
+const links = {
+  appStore: '#criar-rotina',
+  googlePlay: '#criar-rotina',
+  privacidade: '#contato',
+  termos: '#contato',
+};
+
 export default function Footer() {
   return (
     <footer className="pk-footer" id="contato">
@@ -42,14 +53,14 @@ export default function Footer() {
             </p>
 
             <div className="pk-footer__stores" data-reveal="up" data-reveal-delay="350">
-              <a className="pk-footer__store" href="#app-store" aria-label="Baixar na App Store">
+              <a className="pk-footer__store" href={links.appStore} aria-label="Baixar na App Store">
                 <AppleIcon />
                 <span className="pk-footer__store-text">
                   <span className="pk-footer__store-label">Baixe na</span>
                   <span className="pk-footer__store-name">App Store</span>
                 </span>
               </a>
-              <a className="pk-footer__store" href="#google-play" aria-label="Disponível no Google Play">
+              <a className="pk-footer__store" href={links.googlePlay} aria-label="Disponível no Google Play">
                 <PlayIcon />
                 <span className="pk-footer__store-text">
                   <span className="pk-footer__store-label">Disponível no</span>
@@ -72,8 +83,8 @@ export default function Footer() {
             <span className="pk-footer__copy">© 2026 PontosKids</span>
           </div>
           <nav className="pk-footer__links" aria-label="Links do rodapé">
-            <a href="#privacidade">Privacidade</a>
-            <a href="#termos">Termos</a>
+            <a href={links.privacidade}>Privacidade</a>
+            <a href={links.termos}>Termos</a>
             <a href="#contato">Contato</a>
           </nav>
         </div>

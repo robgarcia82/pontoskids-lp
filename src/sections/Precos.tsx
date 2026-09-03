@@ -1,3 +1,4 @@
+import Button from '../components/Button';
 import Tag from '../components/Tag';
 import { CheckIcon } from '../components/icons';
 import './Precos.css';
@@ -115,9 +116,13 @@ export default function Precos() {
                 ))}
               </ul>
 
-              <a className="pk-precos__cta" href={plan.href}>
+              <Button
+                className="pk-precos__cta"
+                variant={plan.featured ? 'primary' : 'outline'}
+                href={plan.href}
+              >
                 {plan.cta}
-              </a>
+              </Button>
             </article>
           ))}
         </div>

@@ -97,9 +97,11 @@ export default function Faq() {
             const open = openIndex === index;
             const number = String(index + 1).padStart(2, '0');
             const panelId = `faq-panel-${index}`;
+            const buttonId = `faq-question-${index}`;
             return (
               <li key={item.question} className={`pk-faq__item${open ? ' is-open' : ''}`}>
                 <button
+                  id={buttonId}
                   type="button"
                   className="pk-faq__question"
                   aria-expanded={open}
@@ -110,7 +112,14 @@ export default function Faq() {
                   <span className="pk-faq__question-text">{item.question}</span>
                   <ToggleIcon open={open} />
                 </button>
-                <div id={panelId} className="pk-faq__panel" role="region" aria-hidden={!open}>
+                <div
+                  id={panelId}
+                  className="pk-faq__panel"
+                  role="region"
+                  aria-labelledby={buttonId}
+                  aria-hidden={!open}
+                  inert={!open}
+                >
                   <div className="pk-faq__panel-inner">
                     <p className="pk-faq__answer">{item.answer}</p>
                   </div>

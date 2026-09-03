@@ -28,6 +28,7 @@ npm run dev
 - `src/lib/asset.ts` — resolve caminhos de `public/` respeitando a base do deploy (`/pontoskids-lp/` no GitHub Pages).
 - `public/assets/` — imagens e vetores (logo, fundo do hero, família, telas do app, ícones 3D). Fotos em WebP com PNG de fallback.
 - `backup/sections/` — versões anteriores de seções, fora do build.
+- Textos editáveis: perguntas do FAQ em `src/sections/Faq.tsx` (`items`), planos em `src/sections/Precos.tsx` (`plans`), depoimentos em `src/sections/Depoimentos.tsx` (`testimonials`).
 
 ## Layout responsivo
 

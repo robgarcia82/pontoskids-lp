@@ -22,6 +22,9 @@
   --pk-color-divider: #ececec;
   --pk-color-surface-dark: #343b48;   /* verso do card cinza (dor → solução) */
   --pk-color-star: #f5b301;           /* estrelas dos depoimentos */
+  --pk-color-text-muted: #b4b9c4;     /* título secundário e recurso não incluído (preços) */
+  --pk-color-primary-soft: #8ab8ff;   /* preço em destaque sobre fundo navy */
+  --pk-color-teal-soft: #5dcaa5;      /* checks sobre fundo navy */
 
   /* Gradientes */
   --pk-gradient-soft: linear-gradient(90deg, #ecf3fe 0.92%, #e8f9f4 100%);
@@ -60,21 +63,11 @@
 
   /* Sombras */
   --pk-shadow-button-inset: inset 0 -4px 0 rgba(0, 0, 0, 0.1);
-  --pk-shadow-phone:
-    0 20.04px 20.04px rgba(0, 0, 0, 0.25),
-    0 44.42px 67.71px rgba(0, 0, 0, 0.15),
-    0 -20.58px 21.67px rgba(255, 255, 255, 0.1),
-    0 -7.04px 30.88px rgba(0, 0, 0, 0.1);
   --pk-shadow-card: 0 45.7px 37.24px rgba(0, 0, 0, 0.07);
-
-  /* Layout */
-  --pk-page-width: 1440px;
-  --pk-page-height: 4440px;
 }
 
 /* Layout responsivo */
 :root {
   --pk-container: 1204px;                 /* 1440 - 2 × 118 (margens do Figma) */
   --pk-gutter-min: 24px;
-  --pk-gutter: max(var(--pk-gutter-min), calc((100vw - var(--pk-container)) / 2));
 }
