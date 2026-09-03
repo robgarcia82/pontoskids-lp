@@ -57,36 +57,12 @@
   width: 100%;
 }
 
-/* Fallback sem transform 3D (navegadores antigos ou sem aceleração): troca as faces por opacidade */
-@supports not (transform-style: preserve-3d) {
-  .pk-dores__card-inner,
-  .pk-dores__card.is-flipped .pk-dores__card-inner,
-  .pk-dores__card:hover .pk-dores__card-inner {
-    transform: none;
-  }
-
-  .pk-dores__card-back {
-    transform: none;
-    opacity: 0;
-    transition: opacity 320ms ease;
-  }
-
-  .pk-dores__card-front {
-    transition: opacity 320ms ease;
-  }
-
-  .pk-dores__card.is-flipped .pk-dores__card-back,
-  .pk-dores__card:hover:not(.is-flipped) .pk-dores__card-back {
-    opacity: 1;
-  }
-
-  .pk-dores__card.is-flipped .pk-dores__card-front,
-  .pk-dores__card:hover:not(.is-flipped) .pk-dores__card-front {
-    opacity: 0;
-  }
-}
-
-/* Card que vira: frente = dor, verso = solução */
+/*
+ * Card que vira: frente = dor, verso = solução.
+ * - Com mouse (desktop): giro 3D no hover/foco; o clique fixa o verso.
+ * - No toque (celular/tablet): crossfade 2D entre as faces — rotação 3D com
+ *   backface-visibility é instável no WebKit (faces somem, ícone vaza).
+ */
 .pk-dores__card {
   position: relative;
   height: 220px;
@@ -104,18 +80,13 @@
   height: 100%;
   border-radius: var(--pk-radius-lg);
   text-align: left;
-  transform-style: preserve-3d;
-  transition: transform 640ms cubic-bezier(0.22, 1, 0.36, 1);
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .pk-dores__card-inner:focus-visible {
   outline: 2px solid var(--pk-color-primary);
   outline-offset: 3px;
-}
-
-.pk-dores__card.is-flipped .pk-dores__card-inner {
-  transform: rotateY(180deg);
 }
 
 .pk-dores__card-face {
@@ -125,11 +96,6 @@
   flex-direction: column;
   padding: var(--pk-space-6);
   border-radius: var(--pk-radius-lg);
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  /* As faces trocam de visibilidade na metade do giro (640ms / 2): evita o ícone animado
-     da frente "vazar" pelo verso em navegadores que renderizam filhos animados em camada própria */
-  transition: visibility 0s linear 320ms;
 }
 
 .pk-dores__card-back {
@@ -137,23 +103,74 @@
   gap: var(--pk-space-3);
   background: var(--pk-color-primary);
   color: var(--pk-color-on-primary);
-  transform: rotateY(180deg);
-  visibility: hidden;
 }
 
-/* Verso à mostra: fixado por clique (sem hover) */
+/* ---- Toque: crossfade ---- */
+.pk-dores__card-face {
+  transition: opacity 360ms ease;
+}
+
+.pk-dores__card-back {
+  opacity: 0;
+}
+
 .pk-dores__card.is-flipped .pk-dores__card-front {
-  visibility: hidden;
+  opacity: 0;
 }
 
 .pk-dores__card.is-flipped .pk-dores__card-back {
-  visibility: visible;
+  opacity: 1;
 }
 
-.pk-dores__card-icon-float,
-.pk-dores__card-icon {
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
+/* ---- Mouse: giro 3D ---- */
+@media (hover: hover) {
+  .pk-dores__card-inner {
+    transform-style: preserve-3d;
+    transition: transform 640ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .pk-dores__card-face {
+    transition: none;
+    opacity: 1;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+
+  .pk-dores__card-back,
+  .pk-dores__card.is-flipped .pk-dores__card-back {
+    opacity: 1;
+    transform: rotateY(180deg);
+  }
+
+  .pk-dores__card.is-flipped .pk-dores__card-front {
+    opacity: 1;
+  }
+
+  .pk-dores__card-icon-float,
+  .pk-dores__card-icon {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+
+  /* Verso à mostra quando: hover XOR fixado por clique */
+  .pk-dores__card:hover .pk-dores__card-inner,
+  .pk-dores__card.is-flipped .pk-dores__card-inner,
+  .pk-dores__card-inner:focus-visible {
+    transform: rotateY(180deg);
+  }
+
+  .pk-dores__card.is-flipped:hover .pk-dores__card-inner {
+    transform: rotateY(0deg);
+  }
+
+  .pk-dores__card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 32px rgba(36, 48, 71, 0.08);
+  }
+
+  .pk-dores__card:hover .pk-dores__card-icon {
+    transform: scale(1.08) rotate(-4deg);
+  }
 }
 
 .pk-dores__card--gray .pk-dores__card-front {
@@ -192,32 +209,6 @@
   letter-spacing: -0.02em;
 }
 
-@media (hover: hover) {
-  .pk-dores__card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 16px 32px rgba(36, 48, 71, 0.08);
-  }
-
-  .pk-dores__card:hover .pk-dores__card-inner,
-  .pk-dores__card-inner:focus-visible {
-    transform: rotateY(180deg);
-  }
-
-  /* Fixo no verso + hover: mostra a frente (o clique sempre muda algo visível) */
-  .pk-dores__card.is-flipped:hover .pk-dores__card-inner {
-    transform: rotateY(0deg);
-  }
-
-  .pk-dores__card:hover:not(.is-flipped) .pk-dores__card-front,
-  .pk-dores__card.is-flipped:hover .pk-dores__card-back {
-    visibility: hidden;
-  }
-
-  .pk-dores__card:hover:not(.is-flipped) .pk-dores__card-back,
-  .pk-dores__card.is-flipped:hover .pk-dores__card-front {
-    visibility: visible;
-  }
-}
 
 /* Ícones "flutuando": movimento vertical sutil, cada card com fase diferente */
 .pk-dores__card-icon-float {
