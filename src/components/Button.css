@@ -1,0 +1,39 @@
+.pk-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--pk-space-14);
+  padding: 0 var(--pk-space-6);
+  border-radius: var(--pk-radius-md);
+  background: var(--pk-color-primary);
+  box-shadow: var(--pk-shadow-button-inset);
+  color: var(--pk-color-on-primary);
+  font-size: var(--pk-font-size-body);
+  font-weight: 700;
+  text-align: center;
+  white-space: nowrap;
+  transition:
+    transform 200ms ease,
+    box-shadow 200ms ease,
+    background-color 200ms ease;
+}
+
+@media (hover: hover) {
+  .pk-button:hover {
+    background: var(--pk-color-primary-strong);
+    transform: translateY(-2px);
+    box-shadow:
+      var(--pk-shadow-button-inset),
+      0 10px 24px rgba(58, 134, 255, 0.35);
+  }
+}
+
+.pk-button:active {
+  transform: translateY(1px);
+  box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.1);
+}
+
+.pk-button:focus-visible {
+  outline: 2px solid var(--pk-color-primary-strong);
+  outline-offset: 3px;
+}

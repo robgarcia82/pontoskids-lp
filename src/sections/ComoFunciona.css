@@ -1,0 +1,313 @@
+.pk-como {
+  position: relative;
+  padding-top: 307px;
+}
+
+.pk-como__inner {
+  display: flex;
+  align-items: center;
+  gap: 100px;
+}
+
+.pk-como__phone {
+  position: relative;
+  width: 329px;
+  height: 677px;
+  flex-shrink: 0;
+}
+
+/* O export do Figma inclui a sombra do iPhone (blur 67.7px nas laterais, 42px acima). */
+.pk-como__phone-img {
+  position: absolute;
+  top: -42px;
+  left: -66.25px;
+  width: 461.5px;
+  height: 827px;
+  max-width: none;
+  animation: pk-como-phone-in 320ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes pk-como-phone-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.pk-como__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--pk-space-16);
+  width: 682px;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.pk-como__heading {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--pk-space-4);
+  width: 100%;
+}
+
+.pk-como__title {
+  width: 100%;
+}
+
+.pk-como__steps {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pk-como__step-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  width: 100%;
+}
+
+.pk-como__step {
+  display: flex;
+  align-items: center;
+  gap: var(--pk-space-6);
+  width: 100%;
+  padding: var(--pk-space-6) 0; /* caixa de 104px reservada sempre: nada se move ao clicar */
+  border-radius: var(--pk-radius-md);
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 260ms ease;
+}
+
+/* Selecionado e hover: mesmo visual do item 01 no Figma */
+.pk-como__step--active {
+  background: var(--pk-color-surface-blue);
+}
+
+@media (hover: hover) {
+  .pk-como__step:hover {
+    background: var(--pk-color-surface-blue);
+  }
+}
+
+.pk-como__step:focus-visible {
+  outline: 2px solid var(--pk-color-primary);
+  outline-offset: 2px;
+}
+
+.pk-como__step-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  padding: 14px 16px;
+  border-radius: var(--pk-radius-md);
+  background: var(--pk-color-surface-blue);
+  font-size: var(--pk-font-size-sm);
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--pk-color-primary);
+  flex-shrink: 0;
+}
+
+.pk-como__step-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--pk-space-1);
+}
+
+.pk-como__step-title {
+  font-size: var(--pk-font-size-step);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--pk-color-text-strong);
+}
+
+.pk-como__step-text {
+  font-size: var(--pk-font-size-sm);
+  font-weight: 500;
+  color: var(--pk-color-text);
+}
+
+.pk-como__divider {
+  width: 100%;
+  height: 1px;
+  margin: 0;
+  border: 0;
+  background: var(--pk-color-divider);
+}
+
+/* Abas e texto compacto só existem no mobile/tablet */
+.pk-como__tabs,
+.pk-como__tab-copy {
+  display: none;
+}
+
+/* No Figma a seção começa em x=212 (94px à direita da margem de 118px) */
+@media (min-width: 1252px) {
+  .pk-como__inner {
+    padding-left: 94px;
+  }
+}
+
+@media (max-width: 1251px) {
+  .pk-como__inner {
+    gap: 64px;
+  }
+
+}
+
+/* Opção A (mobile/tablet): título → abas → texto do passo → celular recortado → botão */
+@media (max-width: 1023px) {
+  .pk-como {
+    padding-top: 120px;
+  }
+
+  .pk-como__inner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--pk-space-6);
+  }
+
+  /* Os filhos do content viram itens diretos do inner para poder reordenar com o celular */
+  .pk-como__content {
+    display: contents;
+  }
+
+  .pk-como__heading {
+    order: 1;
+    margin-bottom: var(--pk-space-2);
+  }
+
+  .pk-como__tabs {
+    order: 2;
+    display: flex;
+    gap: var(--pk-space-2);
+  }
+
+  .pk-como__tab {
+    flex: 1;
+    height: 48px;
+    border-radius: var(--pk-radius-md);
+    border: 1.5px solid var(--pk-color-surface-blue);
+    background: transparent;
+    font-size: var(--pk-font-size-sm);
+    font-weight: 700;
+    color: var(--pk-color-primary);
+    transition:
+      background-color 220ms ease,
+      border-color 220ms ease,
+      color 220ms ease;
+  }
+
+  .pk-como__tab--active {
+    background: var(--pk-color-surface-blue);
+    border-color: var(--pk-color-surface-blue);
+  }
+
+  .pk-como__tab:focus-visible {
+    outline: 2px solid var(--pk-color-primary);
+    outline-offset: 2px;
+  }
+
+  .pk-como__tab-copy {
+    order: 3;
+    display: flex;
+    flex-direction: column;
+    gap: var(--pk-space-1);
+    min-height: 64px;
+    animation: pk-como-copy-in 260ms ease both;
+  }
+
+  .pk-como__steps {
+    display: none;
+  }
+
+  /* Celular recortado na base: mostra a parte de cima da tela */
+  .pk-como__phone {
+    order: 4;
+    align-self: center;
+    width: 329px;
+    height: 360px;
+    margin-top: var(--pk-space-2);
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to bottom, #000 78%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 78%, transparent 100%);
+  }
+
+  .pk-como__phone-img {
+    top: -42px;
+    left: -66.25px;
+    width: 461.5px;
+    height: 827px;
+  }
+
+  .pk-como__cta {
+    order: 5;
+  }
+}
+
+@keyframes pk-como-copy-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .pk-como {
+    padding-top: 80px;
+  }
+
+  .pk-como__phone {
+    width: 280px;
+    height: 320px;
+  }
+
+  .pk-como__phone-img {
+    top: -36px;
+    left: -56.4px;
+    width: 392.8px;
+    height: 704px;
+  }
+
+
+  .pk-como__step {
+    padding: var(--pk-space-4) 0;
+  }
+
+  .pk-como__step-number {
+    width: 48px;
+    height: 48px;
+    padding: 0;
+  }
+
+  .pk-como__step-title {
+    font-size: 17px;
+  }
+
+  .pk-como__content .pk-button {
+    width: 100% !important;
+  }
+}

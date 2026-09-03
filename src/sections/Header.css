@@ -1,0 +1,45 @@
+.pk-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  padding-top: 40px;
+}
+
+.pk-header__logo {
+  display: inline-block;
+  transition:
+    opacity 200ms ease,
+    transform 200ms ease;
+}
+
+@media (hover: hover) {
+  .pk-header__logo:hover {
+    opacity: 0.85;
+    transform: translateY(-1px);
+  }
+}
+
+.pk-header__logo img {
+  width: 173px;
+  height: 32px;
+}
+
+/* No Figma o logo fica em x=131 (13px à direita da margem de 118px) */
+@media (min-width: 1252px) {
+  .pk-header__logo {
+    margin-left: 13px;
+  }
+}
+
+@media (max-width: 767px) {
+  .pk-header {
+    padding-top: 24px;
+  }
+
+  .pk-header__logo img {
+    width: 140px;
+    height: auto;
+  }
+}

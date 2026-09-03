@@ -1,0 +1,251 @@
+.pk-footer {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+/* Cartão de chamada: fundo em degradê da marca com a família ao fundo */
+.pk-footer__cta {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 640px;
+  padding: 96px var(--pk-space-6);
+  border-radius: var(--pk-radius-xl);
+  background: var(--pk-gradient-final); /* mesmo degradê do bloco "Recompensas, regras e permissões" */
+  overflow: hidden;
+  text-align: center;
+  color: var(--pk-color-on-primary);
+}
+
+/* Família ao fundo: maior e centralizada, ancorada na base do cartão */
+.pk-footer__art {
+  position: absolute;
+  left: 50%;
+  bottom: -190px;
+  width: 900px;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.pk-footer__art img {
+  width: 100%;
+  height: auto;
+  opacity: 0.2;
+  filter: saturate(0.6);
+  -webkit-mask-image: linear-gradient(to top, #000 55%, transparent 100%);
+  mask-image: linear-gradient(to top, #000 55%, transparent 100%);
+}
+
+.pk-footer__cta-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--pk-space-6);
+  max-width: 720px;
+}
+
+.pk-footer__title {
+  font-size: var(--pk-font-size-h2);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.05em;
+}
+
+.pk-footer__text {
+  max-width: 520px;
+  font-size: var(--pk-font-size-lead);
+  font-weight: 400;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+/* Badges das lojas */
+.pk-footer__stores {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--pk-space-4);
+  margin-top: var(--pk-space-4);
+}
+
+.pk-footer__store {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--pk-space-3);
+  height: 64px;
+  padding: 0 var(--pk-space-6) 0 20px;
+  border-radius: var(--pk-radius-md);
+  background: var(--pk-color-heading);
+  color: var(--pk-color-on-primary);
+  text-align: left;
+  transition:
+    transform 200ms ease,
+    background-color 200ms ease,
+    box-shadow 200ms ease;
+}
+
+.pk-footer__store-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.pk-footer__store-label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.75;
+}
+
+.pk-footer__store-name {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+@media (hover: hover) {
+  .pk-footer__store:hover {
+    background: #000;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.pk-footer__store:focus-visible,
+.pk-footer__web-link:focus-visible,
+.pk-footer__links a:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+.pk-footer__web-link {
+  font-size: var(--pk-font-size-body);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  color: rgba(255, 255, 255, 0.9);
+  transition: color 200ms ease;
+}
+
+@media (hover: hover) {
+  .pk-footer__web-link:hover {
+    color: var(--pk-color-on-primary);
+  }
+}
+
+/* Barra final */
+.pk-footer__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--pk-space-6);
+  padding-top: 56px;
+}
+
+.pk-footer__brand {
+  display: flex;
+  align-items: center;
+  gap: var(--pk-space-4);
+}
+
+.pk-footer__brand img {
+  width: 140px;
+  height: auto;
+}
+
+.pk-footer__copy {
+  font-size: var(--pk-font-size-sm);
+  color: var(--pk-color-text);
+}
+
+.pk-footer__links {
+  display: flex;
+  gap: var(--pk-space-8);
+  font-size: var(--pk-font-size-sm);
+  font-weight: 600;
+  color: var(--pk-color-heading);
+}
+
+.pk-footer__links a {
+  transition: color 200ms ease;
+}
+
+@media (hover: hover) {
+  .pk-footer__links a:hover {
+    color: var(--pk-color-primary);
+  }
+}
+
+@media (max-width: 1023px) {
+  .pk-footer__cta {
+    min-height: 0;
+    padding: 80px var(--pk-space-6);
+    border-radius: 40px;
+  }
+
+  .pk-footer__title {
+    font-size: clamp(32px, 4.6vw, 52px);
+  }
+
+  .pk-footer__art {
+    width: 640px;
+    bottom: -140px;
+  }
+}
+
+@media (max-width: 767px) {
+  .pk-footer {
+    padding-top: 24px;
+  }
+
+  .pk-footer__cta {
+    padding: 56px var(--pk-space-6);
+    border-radius: 32px;
+  }
+
+  .pk-footer__title {
+    font-size: 32px;
+    letter-spacing: -0.04em;
+  }
+
+  .pk-footer__text {
+    font-size: 16px;
+  }
+
+  .pk-footer__art {
+    width: 420px;
+    bottom: -100px;
+  }
+
+  .pk-footer__store {
+    width: 100%;
+    justify-content: center;
+    padding: 0 var(--pk-space-4);
+  }
+
+  .pk-footer__stores {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .pk-footer__bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--pk-space-6);
+    padding-top: 40px;
+  }
+
+  .pk-footer__brand {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--pk-space-2);
+  }
+
+  .pk-footer__links {
+    gap: var(--pk-space-6);
+  }
+}

@@ -1,0 +1,29 @@
+.pk-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--pk-space-2);
+  padding: var(--pk-space-2) var(--pk-space-4);
+  border-radius: var(--pk-radius-full);
+  font-size: var(--pk-font-size-tag);
+  font-weight: 600;
+  line-height: 1.4;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.pk-tag--blue {
+  background: var(--pk-color-surface-blue);
+}
+
+.pk-tag--white {
+  background: var(--pk-color-bg);
+}
+
+.pk-tag--primary {
+  color: var(--pk-color-primary);
+}
+
+.pk-tag--teal {
+  color: var(--pk-color-teal);
+}

@@ -1,0 +1,80 @@
+/* PontosKids — design tokens extraídos do Figma (Telas / Desktop - 1) */
+:root {
+  /* Cores de marca */
+  --pk-color-primary: #3a86ff;          /* botões, tags, links */
+  --pk-color-primary-strong: #186dfc;   /* destaque do título hero */
+  --pk-color-navy: #112546;             /* início do gradiente do bloco final */
+  --pk-color-teal: #079588;             /* tag / checks "para as crianças" */
+
+  /* Texto */
+  --pk-color-heading: #243047;
+  --pk-color-text: #667085;
+  --pk-color-text-strong: #000000;
+  --pk-color-on-primary: #ffffff;
+
+  /* Superfícies */
+  --pk-color-bg: #ffffff;
+  --pk-color-bg-alt: #f8f9fb;
+  --pk-color-surface-gray: #f5f6f8;
+  --pk-color-surface-blue: #ecf3fe;
+  --pk-color-surface-mint: #e8f9f4;
+  --pk-color-surface-mint-strong: #e1f7f2;
+  --pk-color-divider: #ececec;
+  --pk-color-surface-dark: #343b48;   /* verso do card cinza (dor → solução) */
+  --pk-color-star: #f5b301;           /* estrelas dos depoimentos */
+
+  /* Gradientes */
+  --pk-gradient-soft: linear-gradient(90deg, #ecf3fe 0.92%, #e8f9f4 100%);
+  --pk-gradient-final: linear-gradient(250.6deg, #112546 5%, #3a86ff 80.76%);
+
+  /* Raio */
+  --pk-radius-md: 16px;
+  --pk-radius-lg: 24px;
+  --pk-radius-xl: 56px;
+  --pk-radius-full: 100px;
+
+  /* Espaçamento */
+  --pk-space-1: 4px;
+  --pk-space-2: 8px;
+  --pk-space-3: 12px;
+  --pk-space-4: 16px;
+  --pk-space-6: 24px;
+  --pk-space-8: 32px;
+  --pk-space-12: 48px;
+  --pk-space-14: 56px;
+  --pk-space-16: 64px;
+
+  /* Tipografia */
+  --pk-font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --pk-font-size-tag: 10px;
+  --pk-font-size-sm: 14px;
+  --pk-font-size-card: 15px;
+  --pk-font-size-body: 16px;
+  --pk-font-size-callout: 17px;
+  --pk-font-size-step: 19px;
+  --pk-font-size-lead: 20px;
+  --pk-font-size-h3: 32px;
+  --pk-font-size-h2-final: 40px;
+  --pk-font-size-h2: 52px;
+  --pk-font-size-h1: 64px;
+
+  /* Sombras */
+  --pk-shadow-button-inset: inset 0 -4px 0 rgba(0, 0, 0, 0.1);
+  --pk-shadow-phone:
+    0 20.04px 20.04px rgba(0, 0, 0, 0.25),
+    0 44.42px 67.71px rgba(0, 0, 0, 0.15),
+    0 -20.58px 21.67px rgba(255, 255, 255, 0.1),
+    0 -7.04px 30.88px rgba(0, 0, 0, 0.1);
+  --pk-shadow-card: 0 45.7px 37.24px rgba(0, 0, 0, 0.07);
+
+  /* Layout */
+  --pk-page-width: 1440px;
+  --pk-page-height: 4440px;
+}
+
+/* Layout responsivo */
+:root {
+  --pk-container: 1204px;                 /* 1440 - 2 × 118 (margens do Figma) */
+  --pk-gutter-min: 24px;
+  --pk-gutter: max(var(--pk-gutter-min), calc((100vw - var(--pk-container)) / 2));
+}

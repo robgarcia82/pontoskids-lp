@@ -1,0 +1,277 @@
+.pk-hero {
+  position: relative;
+  min-height: 940px;
+  padding-top: 104px; /* Figma: 144px; reduzido em 40px a pedido */
+  padding-bottom: 149px;
+  overflow: hidden;
+}
+
+/* Fundo azul fluido — full-bleed, 100% da largura do canvas.
+   A máscara faz o azul se dissolver em branco na base, como o blur do Figma. */
+.pk-hero__background {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 45%, rgba(0, 0, 0, 0) 100%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 45%, rgba(0, 0, 0, 0) 100%);
+}
+
+.pk-hero__bg-blob {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.pk-hero__bg-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 409px;
+  height: 545px;
+}
+
+.pk-hero__inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 23px;
+  width: 100%;
+  max-width: 1253px;
+}
+
+.pk-hero__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--pk-space-8);
+  width: 583px;
+  max-width: 100%;
+  flex-shrink: 0;
+}
+
+.pk-hero__title {
+  width: 100%;
+  font-size: var(--pk-font-size-h1);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.06em;
+  color: var(--pk-color-heading);
+}
+
+.pk-hero__title-highlight {
+  color: var(--pk-color-primary-strong);
+}
+
+.pk-hero__body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--pk-space-12);
+  width: 100%;
+}
+
+.pk-hero__lead {
+  font-size: var(--pk-font-size-lead);
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--pk-color-text);
+}
+
+.pk-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--pk-space-6) var(--pk-space-14);
+  width: 100%;
+}
+
+.pk-hero__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--pk-space-2);
+  padding: var(--pk-space-2) 0;
+  font-size: var(--pk-font-size-body);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--pk-color-primary);
+  transition: color 200ms ease;
+}
+
+.pk-hero__link svg {
+  transition: transform 200ms ease;
+}
+
+@media (hover: hover) {
+  .pk-hero__link:hover {
+    color: var(--pk-color-primary-strong);
+  }
+
+  .pk-hero__link:hover svg {
+    transform: translateY(4px);
+  }
+}
+
+.pk-hero__link:focus-visible {
+  outline: 2px solid var(--pk-color-primary);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+.pk-hero__figure {
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: 647px;
+}
+
+/*
+ * Cena da família: caixa quadrada fluida (até 647px, o frame do Figma).
+ * Posições em % da caixa, medidas na referência (canvas 1392×1300 → 647px).
+ */
+.pk-hero__scene {
+  position: relative;
+  width: 100%;
+  max-width: 647px;
+  aspect-ratio: 1 / 1;
+}
+
+.pk-hero__scene > picture {
+  display: contents;
+}
+
+.pk-hero__family {
+  position: absolute;
+  top: 14.37%;
+  left: 6.1%;
+  width: 84.62%;
+  height: auto;
+  max-width: none;
+}
+
+.pk-hero__deco {
+  position: absolute;
+  max-width: none;
+  height: auto;
+  animation: pk-float 4.6s ease-in-out infinite;
+}
+
+.pk-hero__deco--heart {
+  top: 17.93%;
+  left: 7.84%;
+  width: 17.39%;
+  animation-duration: 4.2s;
+}
+
+.pk-hero__deco--star {
+  top: 6.18%;
+  left: 51.31%;
+  width: 16.23%;
+  animation-duration: 5.2s;
+  animation-delay: -1.8s;
+}
+
+.pk-hero__deco--checklist {
+  top: 37.02%;
+  left: 5.26%;
+  width: 22.57%;
+  animation-duration: 6s;
+  animation-delay: -2.6s;
+}
+
+.pk-hero__deco--calendar {
+  top: 37.25%;
+  left: 78.3%;
+  width: 17.25%;
+  animation-duration: 4.8s;
+  animation-delay: -3.4s;
+}
+
+/* No Figma o conteúdo do hero começa em x=126 (8px à direita da margem de 118px) */
+@media (min-width: 1252px) {
+  .pk-hero__inner {
+    margin-left: 8px;
+  }
+}
+
+@media (max-width: 1251px) {
+  .pk-hero {
+    min-height: 0;
+    padding-bottom: 72px;
+  }
+
+  .pk-hero__content {
+    width: 50%;
+  }
+
+  .pk-hero__title {
+    font-size: clamp(40px, 4.6vw, 64px);
+  }
+}
+
+@media (max-width: 1023px) {
+  .pk-hero {
+    min-height: 0;
+    padding-top: 120px;
+    padding-bottom: 80px;
+  }
+
+  .pk-hero__inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--pk-space-8);
+  }
+
+  .pk-hero__content {
+    width: 100%;
+    max-width: 583px;
+  }
+
+  .pk-hero__figure {
+    align-self: center;
+    width: min(100%, 520px);
+  }
+
+  .pk-hero__lead-break {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .pk-hero {
+    padding-top: 96px;
+    padding-bottom: 56px;
+  }
+
+  .pk-hero__title {
+    font-size: clamp(36px, 10.5vw, 44px);
+    letter-spacing: -0.04em;
+  }
+
+  .pk-hero__body {
+    gap: var(--pk-space-8);
+  }
+
+  .pk-hero__lead {
+    font-size: 17px;
+  }
+
+  .pk-hero__actions {
+    gap: var(--pk-space-4);
+  }
+
+  .pk-hero__actions .pk-button {
+    width: 100% !important;
+  }
+
+  .pk-hero__bg-line {
+    width: 260px;
+    height: auto;
+  }
+
+  .pk-hero__figure {
+    width: min(100%, 340px);
+  }
+}

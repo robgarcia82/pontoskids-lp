@@ -1,0 +1,289 @@
+.pk-dores {
+  position: relative;
+  padding-top: 91px;
+}
+
+.pk-dores__inner {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+}
+
+.pk-dores__intro {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--pk-space-8);
+  width: 453px;
+  max-width: 100%;
+  flex-shrink: 0;
+}
+
+.pk-dores__heading {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--pk-space-4);
+  width: 100%;
+}
+
+.pk-dores__title {
+  width: 100%;
+  font-size: var(--pk-font-size-h2);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.06em;
+  color: var(--pk-color-heading);
+}
+
+.pk-dores__text {
+  max-width: 417px;
+  font-size: var(--pk-font-size-body);
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--pk-color-text);
+}
+
+.pk-dores__grid {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--pk-space-4);
+  width: 683px;
+  max-width: 100%;
+  flex-shrink: 1;
+  min-width: 0;
+}
+
+.pk-dores__cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--pk-space-4);
+  width: 100%;
+}
+
+.pk-dores__card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-height: 220px;
+  padding: var(--pk-space-6);
+  border-radius: var(--pk-radius-lg);
+  transition:
+    transform 240ms ease,
+    box-shadow 240ms ease;
+}
+
+@media (hover: hover) {
+  .pk-dores__card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 32px rgba(36, 48, 71, 0.08);
+  }
+
+  .pk-dores__card:hover .pk-dores__card-icon {
+    transform: scale(1.08) rotate(-4deg);
+  }
+}
+
+.pk-dores__card--gray {
+  background: var(--pk-color-surface-gray);
+}
+
+.pk-dores__card--blue {
+  background: var(--pk-color-surface-blue);
+}
+
+.pk-dores__card--mint {
+  background: var(--pk-color-surface-mint);
+}
+
+/* Ícones "flutuando": movimento vertical sutil, cada card com fase diferente */
+.pk-dores__card-icon-float {
+  display: block;
+  width: fit-content;
+  flex-shrink: 0;
+  animation: pk-float 4.5s ease-in-out infinite;
+}
+
+.pk-dores__card:nth-child(2) .pk-dores__card-icon-float {
+  animation-delay: -1.5s;
+  animation-duration: 5s;
+}
+
+.pk-dores__card:nth-child(3) .pk-dores__card-icon-float {
+  animation-delay: -3s;
+  animation-duration: 4.2s;
+}
+
+.pk-dores__card-icon {
+  display: block;
+  transition: transform 240ms ease;
+}
+
+.pk-dores__card-text {
+  margin-top: 70px;
+  font-size: var(--pk-font-size-card);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--pk-color-text);
+}
+
+.pk-dores__callout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--pk-space-6);
+  width: 100%;
+  min-height: 120px;
+  padding: var(--pk-space-6) 40px;
+  border-radius: var(--pk-radius-lg);
+  background: var(--pk-gradient-soft);
+}
+
+.pk-dores__callout-before,
+.pk-dores__callout-after {
+  font-size: var(--pk-font-size-callout);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.pk-dores__callout-before {
+  color: var(--pk-color-text);
+  text-decoration: line-through;
+}
+
+.pk-dores__callout-after {
+  color: var(--pk-color-text-strong);
+}
+
+.pk-dores__callout-arrow {
+  mix-blend-mode: multiply;
+  flex-shrink: 0;
+  transition: transform 240ms ease;
+}
+
+@media (hover: hover) {
+  .pk-dores__callout:hover .pk-dores__callout-arrow {
+    transform: translateX(8px);
+  }
+}
+
+/* Posições exatas do Figma no desktop (texto em x=40, seta em x=314, texto em x=424) */
+@media (min-width: 1252px) {
+  .pk-dores__callout {
+    display: block;
+    position: relative;
+    height: 120px;
+    padding: 0;
+  }
+
+  .pk-dores__callout-before,
+  .pk-dores__callout-after {
+    position: absolute;
+    top: 47px;
+    white-space: nowrap;
+  }
+
+  .pk-dores__callout-before {
+    left: 40px;
+  }
+
+  .pk-dores__callout-after {
+    left: 424px;
+  }
+
+  .pk-dores__callout-arrow {
+    position: absolute;
+    top: 38px;
+    left: 314px;
+  }
+}
+
+@media (max-width: 1251px) {
+  .pk-dores__inner {
+    gap: 40px;
+  }
+
+  .pk-dores__intro {
+    width: 40%;
+  }
+
+  .pk-dores__title {
+    font-size: clamp(32px, 3.8vw, 52px);
+  }
+}
+
+@media (max-width: 1023px) {
+  .pk-dores {
+    padding-top: 80px;
+  }
+
+  .pk-dores__inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .pk-dores__intro {
+    width: 100%;
+    max-width: 583px;
+  }
+
+  .pk-dores__grid {
+    width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .pk-dores {
+    padding-top: 64px;
+  }
+
+  .pk-dores__title {
+    font-size: 32px;
+    letter-spacing: -0.04em;
+  }
+
+  /* Mobile: 2 cards por linha; o callout "Tarefa feita" entra no mesmo grid,
+     ao lado do card "Dê mais autonomia" */
+  .pk-dores__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--pk-space-3);
+  }
+
+  .pk-dores__cards {
+    display: contents;
+  }
+
+  .pk-dores__card {
+    min-height: 0;
+    padding: var(--pk-space-4);
+  }
+
+  .pk-dores__card-text {
+    margin-top: var(--pk-space-6);
+    max-width: none !important;
+  }
+
+  .pk-dores__callout {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: var(--pk-space-3);
+    min-height: 0;
+    padding: var(--pk-space-4);
+  }
+
+  .pk-dores__callout-before,
+  .pk-dores__callout-after {
+    font-size: var(--pk-font-size-card);
+  }
+
+  .pk-dores__callout-arrow {
+    transform: rotate(90deg);
+    width: 40px;
+    height: auto;
+  }
+}

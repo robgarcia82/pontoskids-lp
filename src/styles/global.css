@@ -1,0 +1,115 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--pk-color-bg);
+  color: var(--pk-color-heading);
+  font-family: var(--pk-font-family);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+  border: 0;
+  background: none;
+  padding: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.pk-page {
+  position: relative;
+  width: 100%;
+  overflow-x: hidden;
+  background: var(--pk-color-bg);
+}
+
+/* Container central: 1204px no desktop (margens de 118px em 1440), gutter mínimo de 24px */
+.pk-container {
+  width: 100%;
+  max-width: var(--pk-container);
+  margin-inline: auto;
+  padding-inline: var(--pk-gutter-min);
+}
+
+@media (min-width: 1252px) {
+  .pk-container {
+    padding-inline: 0;
+  }
+}
+
+/* Título das seções (h2): 52px no desktop, fluido no tablet, 32px no mobile */
+.pk-section-title {
+  font-size: var(--pk-font-size-h2);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.06em;
+  color: var(--pk-color-heading);
+}
+
+@media (max-width: 1251px) {
+  .pk-section-title {
+    font-size: clamp(32px, 3.8vw, 52px);
+  }
+}
+
+@media (max-width: 767px) {
+  .pk-section-title {
+    font-size: 32px;
+    letter-spacing: -0.04em;
+  }
+}
+
+/* Flutuação sutil compartilhada (ícones dos cards, itens do bloco final) */
+@keyframes pk-float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-6px) rotate(-1.5deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}

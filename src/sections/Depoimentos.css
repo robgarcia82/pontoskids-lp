@@ -1,0 +1,164 @@
+.pk-depo {
+  padding-top: 120px;
+  padding-bottom: 40px;
+  overflow: hidden;
+}
+
+.pk-depo__heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--pk-space-4);
+  margin-bottom: 64px;
+  text-align: center;
+}
+
+.pk-depo__title {
+  max-width: 720px;
+}
+
+/* Marquee full-bleed com fade nas bordas */
+.pk-depo__marquee {
+  display: flex;
+  flex-direction: column;
+  gap: var(--pk-space-6);
+  width: 100%;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 8%, #000 92%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, #000 8%, #000 92%, transparent 100%);
+}
+
+.pk-depo__row {
+  overflow: hidden;
+}
+
+.pk-depo__track {
+  display: flex;
+  gap: var(--pk-space-6);
+  width: max-content;
+  padding-inline: var(--pk-space-3);
+  animation: pk-depo-scroll 160s linear infinite;
+}
+
+@media (hover: hover) {
+  .pk-depo__marquee:hover .pk-depo__track {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes pk-depo-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Card */
+.pk-depo__card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--pk-space-4);
+  width: 340px;
+  margin: 0;
+  padding: var(--pk-space-6);
+  border-radius: var(--pk-radius-lg);
+  background: var(--pk-color-surface-gray);
+  transition: transform 240ms ease;
+}
+
+@media (hover: hover) {
+  .pk-depo__card:hover {
+    transform: translateY(-4px);
+  }
+}
+
+.pk-depo__stars {
+  display: inline-flex;
+  gap: 2px;
+  color: var(--pk-color-star);
+}
+
+.pk-depo__quote {
+  flex: 1;
+  margin: 0;
+  font-size: var(--pk-font-size-body);
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  color: var(--pk-color-heading);
+}
+
+.pk-depo__author {
+  display: flex;
+  align-items: center;
+  gap: var(--pk-space-2);
+  font-size: var(--pk-font-size-sm);
+  line-height: 1.4;
+}
+
+.pk-depo__name {
+  font-weight: 700;
+  color: var(--pk-color-heading);
+}
+
+.pk-depo__dot,
+.pk-depo__relation {
+  color: var(--pk-color-text);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pk-depo__track {
+    animation: none;
+    flex-wrap: wrap;
+    width: auto;
+    justify-content: center;
+  }
+
+  /* Sem animação, mostra só a primeira cópia dos cards */
+  .pk-depo__track > :nth-child(n + 25) {
+    display: none;
+  }
+
+  .pk-depo__marquee {
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+}
+
+@media (max-width: 1023px) {
+  .pk-depo {
+    padding-top: 80px;
+  }
+
+  .pk-depo__heading {
+    margin-bottom: 48px;
+  }
+}
+
+@media (max-width: 767px) {
+  .pk-depo {
+    padding-top: 64px;
+    padding-bottom: 24px;
+  }
+
+  .pk-depo__heading {
+    align-items: flex-start;
+    text-align: left;
+    margin-bottom: 32px;
+  }
+
+  .pk-depo__card {
+    width: 280px;
+    padding: var(--pk-space-4);
+  }
+
+  .pk-depo__quote {
+    font-size: 15px;
+  }
+
+  .pk-depo__track {
+    animation-duration: 130s;
+  }
+}

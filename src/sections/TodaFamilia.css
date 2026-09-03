@@ -1,0 +1,175 @@
+.pk-familia {
+  position: relative;
+  margin-top: 307px;
+  padding-top: 104px;
+  padding-bottom: 106px;
+  background: var(--pk-color-bg-alt);
+}
+
+.pk-familia__heading {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--pk-space-4);
+  max-width: 698px;
+  margin-bottom: 48px;
+}
+
+.pk-familia__title {
+  width: 100%;
+}
+
+.pk-familia__cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--pk-space-6);
+}
+
+.pk-familia__card {
+  position: relative;
+  height: 560px;
+  border-radius: var(--pk-radius-lg);
+  overflow: hidden;
+}
+
+.pk-familia__card--pais {
+  background: var(--pk-color-surface-blue);
+}
+
+.pk-familia__card--filhos {
+  background: var(--pk-color-surface-mint-strong);
+}
+
+.pk-familia__card-content {
+  position: absolute;
+  top: 48px;
+  left: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--pk-space-4);
+  width: 286px;
+}
+
+.pk-familia__card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--pk-space-6);
+  width: 100%;
+}
+
+.pk-familia__card-title {
+  font-size: var(--pk-font-size-h3);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: -0.04em;
+  color: var(--pk-color-text-strong);
+}
+
+.pk-familia__card-text {
+  font-size: var(--pk-font-size-sm);
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: -0.04em;
+  color: var(--pk-color-text);
+}
+
+/* Mock do app: no Figma fica em x=357, y=56 e é cortado pelo card */
+.pk-familia__mock-wrapper {
+  position: absolute;
+  top: 56px;
+  left: 357px;
+}
+
+.pk-familia__mock {
+  max-width: none;
+}
+
+.pk-familia__mock--pais {
+  width: 305px;
+  border-radius: 20.31px;
+  box-shadow: var(--pk-shadow-card);
+}
+
+.pk-familia__mock--filhos {
+  width: 304px;
+  border-radius: 20.27px;
+}
+
+@media (max-width: 1251px) {
+
+  .pk-familia__card-content {
+    width: 46%;
+    left: 32px;
+    top: 40px;
+  }
+
+  .pk-familia__mock-wrapper {
+    left: 56%;
+  }
+
+  .pk-familia__title-break,
+  .pk-familia__text-break {
+    display: none;
+  }
+}
+
+@media (max-width: 1023px) {
+  .pk-familia {
+    margin-top: 120px;
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  .pk-familia__cards {
+    grid-template-columns: 1fr;
+  }
+
+  .pk-familia__card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--pk-space-8);
+    height: auto;
+    max-height: 720px;
+    padding: 40px 40px 0;
+  }
+
+  .pk-familia__card-content {
+    position: static;
+    width: 100%;
+    max-width: 420px;
+  }
+
+  .pk-familia__mock-wrapper {
+    position: static;
+    align-self: center;
+    width: min(100%, 305px);
+  }
+
+  .pk-familia__mock {
+    width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .pk-familia {
+    margin-top: 80px;
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+
+
+  .pk-familia__heading {
+    margin-bottom: 32px;
+  }
+
+  .pk-familia__card {
+    max-height: 640px;
+    padding: 32px 24px 0;
+  }
+
+  .pk-familia__card-title {
+    font-size: 26px;
+  }
+}

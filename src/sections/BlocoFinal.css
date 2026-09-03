@@ -1,0 +1,186 @@
+.pk-final-section {
+  padding-top: 120px;
+  padding-bottom: 100px; /* a seção de preços vem em seguida */
+}
+
+.pk-final {
+  position: relative;
+  width: 100%;
+  max-width: 1188px;
+  height: 462px;
+  border-radius: var(--pk-radius-xl);
+  background: var(--pk-gradient-final);
+  overflow: hidden;
+}
+
+/*
+ * Cena da ilustração: caixa de 600×452 (mãe e filho + itens flutuantes),
+ * escalada por --pk-scene-scale em telas menores.
+ */
+/* Posições do Figma (node 1049:657 "Group 73"): a cena começa em x=-60 do card */
+.pk-final__figure {
+  --pk-scene-scale: 1;
+  position: absolute;
+  top: 0;
+  left: -60px;
+  width: calc(560px * var(--pk-scene-scale));
+  height: calc(462px * var(--pk-scene-scale));
+  overflow: hidden;
+}
+
+.pk-final__scene {
+  position: relative;
+  width: 560px;
+  height: 462px;
+  transform: scale(var(--pk-scene-scale));
+  transform-origin: top left;
+}
+
+/* image 51: x=-60 y=71, 391×466 (cortada pela base do card) */
+.pk-final__image {
+  position: absolute;
+  top: 71px;
+  left: 0;
+  width: 391px;
+  height: 466px;
+  max-width: none;
+}
+
+/* Itens flutuantes: posições seguem a referência (mãe e filho à esquerda, itens à direita) */
+.pk-final__deco {
+  position: absolute;
+  max-width: none;
+  animation: pk-float 4.6s ease-in-out infinite;
+}
+
+/* image 52 (coração): x=269 y=120 */
+.pk-final__deco--heart {
+  top: 120px;
+  left: 329px;
+  animation-duration: 4.2s;
+}
+
+/* image 53 (estrela): x=383 y=84 */
+.pk-final__deco--star {
+  top: 84px;
+  left: 443px;
+  animation-duration: 5.2s;
+  animation-delay: -1.8s;
+}
+
+/* image 54 (prancheta): x=305 y=211 */
+.pk-final__deco--board {
+  top: 211px;
+  left: 365px;
+  animation-duration: 6s;
+  animation-delay: -2.6s;
+}
+
+/* image 55 (check): x=424 y=179 */
+.pk-final__deco--check {
+  top: 179px;
+  left: 484px;
+  animation-duration: 4.8s;
+  animation-delay: -3.4s;
+}
+
+.pk-final__content {
+  position: absolute;
+  top: 84px;
+  left: 588px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: var(--pk-space-6);
+  width: 581px;
+  max-width: calc(100% - 588px - 24px);
+  height: 294px;
+}
+
+.pk-final__title {
+  max-width: 434px;
+  font-size: var(--pk-font-size-h2-final);
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.04em;
+  color: var(--pk-color-on-primary);
+}
+
+@media (max-width: 1251px) {
+  .pk-final__figure {
+    --pk-scene-scale: 0.8;
+    left: -48px;
+    top: auto;
+    bottom: 0;
+  }
+
+  .pk-final__content {
+    left: 50%;
+    max-width: calc(50% - 32px);
+  }
+
+  .pk-final__title {
+    font-size: clamp(28px, 3.2vw, 40px);
+  }
+}
+
+@media (max-width: 1023px) {
+  .pk-final-section {
+    padding-top: 120px;
+    padding-bottom: 80px;
+  }
+
+  .pk-final {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    border-radius: 40px;
+  }
+
+  .pk-final__figure {
+    --pk-scene-scale: 0.75;
+    position: relative;
+    top: auto;
+    left: auto;
+    bottom: auto;
+    order: 2;
+    margin: 8px auto 0;
+  }
+
+  .pk-final__content {
+    position: static;
+    order: 1;
+    width: 100%;
+    max-width: none;
+    height: auto;
+    padding: 48px 40px 0;
+  }
+
+  .pk-final__title {
+    max-width: 520px;
+  }
+}
+
+@media (max-width: 767px) {
+  .pk-final-section {
+    padding-top: 80px;
+    padding-bottom: 48px;
+  }
+
+  .pk-final {
+    border-radius: 32px;
+  }
+
+  .pk-final__content {
+    padding: 40px 24px 0;
+  }
+
+  .pk-final__figure {
+    --pk-scene-scale: 0.5;
+  }
+
+  .pk-final__title {
+    font-size: 28px;
+  }
+}

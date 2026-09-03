@@ -1,0 +1,30 @@
+.pk-checklist {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Cada item tem a altura da linha do Figma (14px × 2.2 = 30.8px); o ícone acompanha o texto */
+.pk-checklist__item {
+  display: flex;
+  align-items: center;
+  gap: var(--pk-space-3);
+  font-size: var(--pk-font-size-sm);
+  font-weight: 600;
+  line-height: 2.2;
+  letter-spacing: -0.04em;
+}
+
+.pk-checklist__icon {
+  flex-shrink: 0;
+}
+
+.pk-checklist--muted {
+  color: var(--pk-color-text);
+}
+
+.pk-checklist--inverse {
+  color: var(--pk-color-on-primary);
+}
