@@ -110,8 +110,9 @@ img {
   }
 }
 
+/* O marquee de depoimentos (.pk-depo__track) fica de fora: deve rolar sempre, por decisão de produto */
 @media (prefers-reduced-motion: reduce) {
-  *,
+  *:not(.pk-depo__track),
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
