@@ -228,30 +228,36 @@
     margin-bottom: var(--pk-space-2);
   }
 
+  /* Indicadores de passo: pontos cinza, o ativo vira uma pílula azul */
   .pk-como__tabs {
     order: 2;
     display: flex;
-    gap: var(--pk-space-2);
+    align-items: center;
+    gap: 12px;
+    padding: 6px 0;
   }
 
   .pk-como__tab {
-    flex: 1;
-    height: 48px;
-    border-radius: var(--pk-radius-md);
-    border: 1.5px solid var(--pk-color-surface-blue);
-    background: transparent;
-    font-size: var(--pk-font-size-sm);
-    font-weight: 700;
-    color: var(--pk-color-primary);
+    position: relative;
+    width: 10px;
+    height: 10px;
+    border-radius: var(--pk-radius-full);
+    background: var(--pk-color-divider);
     transition:
-      background-color 220ms ease,
-      border-color 220ms ease,
-      color 220ms ease;
+      width 320ms cubic-bezier(0.22, 1, 0.36, 1),
+      background-color 220ms ease;
+  }
+
+  /* Área de toque maior que o ponto */
+  .pk-como__tab::after {
+    content: '';
+    position: absolute;
+    inset: -14px -8px;
   }
 
   .pk-como__tab--active {
-    background: var(--pk-color-surface-blue);
-    border-color: var(--pk-color-surface-blue);
+    width: 44px;
+    background: var(--pk-color-primary);
   }
 
   .pk-como__tab:focus-visible {
