@@ -16,9 +16,9 @@ const toDataUri = (path) => {
 let html = readFileSync(resolve(dist, 'index.html'), 'utf8');
 
 // 1) CSS e JS do build entram inline
-html = html.replace(/<link rel="stylesheet"[^>]*href="\/(assets\/[^"]+\.css)"[^>]*>/g, (_, p) =>
+html = html.replace(/<link rel="stylesheet"[^>]*href="\/(assets\/[^"?]+\.css)(?:\?[^"]*)?"[^>]*>/g, (_, p) =>
   `<style>${readFileSync(resolve(dist, p), 'utf8')}</style>`);
-html = html.replace(/<script type="module"[^>]*src="\/(assets\/[^"]+\.js)"[^>]*><\/script>/g, (_, p) =>
+html = html.replace(/<script type="module"[^>]*src="\/(assets\/[^"?]+\.js)(?:\?[^"]*)?"[^>]*><\/script>/g, (_, p) =>
   `<script type="module">${readFileSync(resolve(dist, p), 'utf8').replace(/<\/script>/g, '<\\/script>')}</script>`);
 html = html.replace(/<link rel="modulepreload"[^>]*>\n?/g, '');
 

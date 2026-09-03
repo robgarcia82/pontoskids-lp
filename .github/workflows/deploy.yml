@@ -27,12 +27,6 @@ jobs:
       - run: npm run build
         env:
           PAGES_BASE: /pontoskids-lp/
-      # Nomes de arquivo são estáveis (sem hash); a query ?v=<commit> garante que um HTML novo
-      # nunca receba CSS/JS antigos do cache do GitHub Pages (10 min).
-      - run: |
-          V=${GITHUB_SHA::8}
-          sed -i "s#assets/app.js\"#assets/app.js?v=$V\"#; s#assets/index.css\"#assets/index.css?v=$V\"#" dist/index.html
-          grep -o 'assets/[a-z]*\.[a-z]*?v=[0-9a-f]*' dist/index.html
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
