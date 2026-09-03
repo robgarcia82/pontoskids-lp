@@ -245,37 +245,31 @@
     margin-bottom: var(--pk-space-2);
   }
 
-  /* Indicadores de passo (abaixo do celular, centralizados): pontos cinza, o ativo vira pílula azul */
+  /* Abas 01 / 02 / 03 acima do texto do passo */
   .pk-como__tabs {
-    order: 5;
+    order: 2;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 12px;
-    padding: 6px 0;
+    gap: var(--pk-space-2);
   }
 
   .pk-como__tab {
-    position: relative;
-    width: 10px;
-    height: 10px;
-    border-radius: var(--pk-radius-full);
-    background: var(--pk-color-divider);
+    flex: 1;
+    height: 48px;
+    border-radius: var(--pk-radius-md);
+    border: 1.5px solid var(--pk-color-surface-blue);
+    background: transparent;
+    font-size: var(--pk-font-size-sm);
+    font-weight: 700;
+    color: var(--pk-color-primary);
     transition:
-      width 320ms cubic-bezier(0.22, 1, 0.36, 1),
-      background-color 220ms ease;
-  }
-
-  /* Área de toque maior que o ponto */
-  .pk-como__tab::after {
-    content: '';
-    position: absolute;
-    inset: -14px -8px;
+      background-color 220ms ease,
+      border-color 220ms ease,
+      color 220ms ease;
   }
 
   .pk-como__tab--active {
-    width: 44px;
-    background: var(--pk-color-primary);
+    background: var(--pk-color-surface-blue);
+    border-color: var(--pk-color-surface-blue);
   }
 
   .pk-como__tab:focus-visible {
@@ -284,7 +278,7 @@
   }
 
   .pk-como__tab-copy {
-    order: 2;
+    order: 3;
     display: flex;
     flex-direction: column;
     gap: var(--pk-space-1);
@@ -298,7 +292,7 @@
 
   /* Celular recortado na base: mostra a parte de cima da tela */
   .pk-como__phone {
-    order: 3;
+    order: 4;
     align-self: center;
     width: 329px;
     height: 360px;

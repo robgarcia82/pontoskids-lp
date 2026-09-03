@@ -150,10 +150,11 @@ export default function ComoFunciona() {
                   type="button"
                   role="tab"
                   aria-selected={isActive}
-                  aria-label={`Passo ${step.number}: ${step.title}`}
                   className={`pk-como__tab${isActive ? ' pk-como__tab--active' : ''}`}
                   onClick={() => setActiveIndex(index)}
-                />
+                >
+                  {step.number}
+                </button>
               );
             })}
           </div>
