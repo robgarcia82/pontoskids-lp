@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useMediaQuery } from '../hooks/useMediaQuery';
 import './StickyCta.css';
 
-const SHOW_AFTER_PX = 320;
+const SHOW_AFTER_PX = 1; // aparece ao menor scroll
 
 /**
  * Botão fixo na base da tela, só no mobile. Aparece depois de rolar um pouco
