@@ -142,6 +142,7 @@
   .pk-faq__aside {
     gap: var(--pk-space-8);
   }
+}
 
 @media (max-width: 767px) {
   .pk-faq {
