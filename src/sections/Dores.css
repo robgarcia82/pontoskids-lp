@@ -361,8 +361,9 @@
     padding: var(--pk-space-4);
   }
 
+  /* Texto alinhado à base do card, como no desktop */
   .pk-dores__card-text {
-    margin-top: var(--pk-space-6);
+    margin-top: auto;
     max-width: none !important;
   }
 
