@@ -15,6 +15,7 @@ npm run dev
 ## Publicação
 
 - **GitHub Pages**: todo push na branch `main` roda `.github/workflows/deploy.yml`, que faz o build com `PAGES_BASE=/pontoskids-lp/` e publica em https://robgarcia82.github.io/pontoskids-lp/.
+- **Hospedagem própria (cPanel/FTP)**: `npm run build` e envie o conteúdo de `dist/` (incluindo o `.htaccess`) para `public_html`. Para automatizar, cadastre em Settings → Secrets do repositório: `FTP_SERVER`, `FTP_USERNAME`, `FTP_PASSWORD` (opcionais: `FTP_PROTOCOL` = `ftps`/`ftp`/`sftp`, `FTP_SERVER_DIR`); o workflow `.github/workflows/deploy-ftp.yml` passa a publicar a cada push.
 - **Arquivo único**: `npm run build:single` gera `dist-single/pontoskids.html` (fragmento para o Artifact do claude.ai) e `dist-single/pontoskids-standalone.html` (HTML completo, com CSS, JS e imagens embutidos, para hospedar em qualquer lugar).
 
 ## Estrutura
