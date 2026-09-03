@@ -245,6 +245,11 @@
     padding-bottom: 72px;
   }
 
+  /* Bloco de texto 20px mais perto da família */
+  .pk-hero__content {
+    margin-top: -20px;
+  }
+
   /* Cabe em 3 linhas em telas de 360px a 430px */
   .pk-hero__title {
     font-size: clamp(28px, 7.9vw, 36px);

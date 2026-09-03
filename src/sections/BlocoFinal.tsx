@@ -15,8 +15,8 @@ export default function BlocoFinal() {
     <section className="pk-final-section" id="criar-rotina" aria-labelledby="final-title">
       <div className="pk-container">
         <div className="pk-final" data-reveal="scale">
-          <div className="pk-final__figure">
-            <div className="pk-final__scene" data-reveal="scale" data-reveal-delay="250">
+          <div className="pk-final__figure" data-reveal="scale" data-reveal-delay="250">
+            <div className="pk-final__scene">
               <picture>
                 <source srcSet={asset('assets/familia-final.webp')} type="image/webp" />
                 <img
