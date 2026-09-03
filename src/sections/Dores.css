@@ -57,6 +57,35 @@
   width: 100%;
 }
 
+/* Fallback sem transform 3D (navegadores antigos ou sem aceleração): troca as faces por opacidade */
+@supports not (transform-style: preserve-3d) {
+  .pk-dores__card-inner,
+  .pk-dores__card.is-flipped .pk-dores__card-inner,
+  .pk-dores__card:hover .pk-dores__card-inner {
+    transform: none;
+  }
+
+  .pk-dores__card-back {
+    transform: none;
+    opacity: 0;
+    transition: opacity 320ms ease;
+  }
+
+  .pk-dores__card-front {
+    transition: opacity 320ms ease;
+  }
+
+  .pk-dores__card.is-flipped .pk-dores__card-back,
+  .pk-dores__card:hover:not(.is-flipped) .pk-dores__card-back {
+    opacity: 1;
+  }
+
+  .pk-dores__card.is-flipped .pk-dores__card-front,
+  .pk-dores__card:hover:not(.is-flipped) .pk-dores__card-front {
+    opacity: 0;
+  }
+}
+
 /* Card que vira: frente = dor, verso = solução */
 .pk-dores__card {
   position: relative;
@@ -153,6 +182,11 @@
   .pk-dores__card:hover .pk-dores__card-inner,
   .pk-dores__card-inner:focus-visible {
     transform: rotateY(180deg);
+  }
+
+  /* Fixo no verso + hover: mostra a frente (o clique sempre muda algo visível) */
+  .pk-dores__card.is-flipped:hover .pk-dores__card-inner {
+    transform: rotateY(0deg);
   }
 }
 

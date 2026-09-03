@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import Tag from '../components/Tag';
-import { useMediaQuery } from '../hooks/useMediaQuery';
 import './Dores.css';
 import { asset } from '../lib/asset';
 
@@ -39,13 +38,10 @@ const cards: Card[] = [
 ];
 
 function FlipCard({ card, index }: { card: Card; index: number }) {
-  // Com mouse, o hover (e o foco por teclado) viram o card via CSS.
-  // Sem mouse (toque), o clique alterna o estado.
-  const hoverCapable = useMediaQuery('(hover: hover)');
+  // O clique/toque sempre alterna o card (fixa o verso). Com mouse, o hover também vira;
+  // se o card já está fixo no verso, o hover mostra a frente, para que todo clique tenha feedback.
   const [flipped, setFlipped] = useState(false);
-  const toggle = () => {
-    if (!hoverCapable) setFlipped((value) => !value);
-  };
+  const toggle = () => setFlipped((value) => !value);
 
   return (
     <article
@@ -56,7 +52,7 @@ function FlipCard({ card, index }: { card: Card; index: number }) {
       <button
         type="button"
         className="pk-dores__card-inner"
-        aria-pressed={hoverCapable ? undefined : flipped}
+        aria-pressed={flipped}
         aria-label={flipped ? 'Ver a dor' : 'Ver como o PontosKids resolve'}
         onClick={toggle}
       >
