@@ -70,14 +70,6 @@ function FlipCard({ card, index }: { card: Card; index: number }) {
               alt=""
             />
           </span>
-          <span className="pk-dores__card-flip-hint" aria-hidden="true">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-              <path
-                d="M12 5a7 7 0 0 1 6.7 5h-2.2l3 3.5 3-3.5h-2.1A8.7 8.7 0 0 0 12 3.3 8.7 8.7 0 0 0 3.3 12h1.8A7 7 0 0 1 12 5Zm0 14a7 7 0 0 1-6.7-5h2.2l-3-3.5-3 3.5h2.1a8.7 8.7 0 0 0 8.4 6.7 8.7 8.7 0 0 0 8.7-8.7h-1.8A7 7 0 0 1 12 19Z"
-                fill="currentColor"
-              />
-            </svg>
-          </span>
           <span className="pk-dores__card-text" style={{ maxWidth: card.painWidth }}>
             {card.painLines.map((line, lineIndex) => (
               <span key={line}>
