@@ -71,10 +71,13 @@ export default function ComoFunciona() {
     const update = () => {
       frame = 0;
       const rect = section.getBoundingClientRect();
-      // 0 quando o topo da seção chega ao meio da tela; 1 quando a base da seção passa do meio
-      const progress = (window.innerHeight / 2 - rect.top) / rect.height;
-      if (progress < 0 || progress > 1) return;
-      const next = Math.min(steps.length - 1, Math.max(0, Math.floor(progress * steps.length)));
+      // A seção é mais alta que a tela e o conteúdo fica fixo (sticky): a rolagem "dentro" dela
+      // vai de 0 (topo da seção no topo da tela) a 1 (base da seção na base da tela).
+      const range = rect.height - window.innerHeight;
+      if (range <= 0) return;
+      const progress = -rect.top / range;
+      const next =
+        progress <= 0 ? 0 : progress >= 1 ? steps.length - 1 : Math.floor(progress * steps.length);
       setActiveIndex((current) => (current === next ? current : next));
     };
     const onScroll = () => {

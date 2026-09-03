@@ -60,7 +60,9 @@ img {
 .pk-page {
   position: relative;
   width: 100%;
-  overflow-x: hidden;
+  /* clip (e não hidden): corta o transbordo horizontal sem virar contêiner de rolagem,
+     o que permitiria quebrar o position: sticky das seções */
+  overflow-x: clip;
   background: var(--pk-color-bg);
 }
 
