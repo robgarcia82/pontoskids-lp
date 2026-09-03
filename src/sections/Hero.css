@@ -245,8 +245,9 @@
     padding-bottom: 72px;
   }
 
+  /* Cabe em 3 linhas em telas de 360px a 430px */
   .pk-hero__title {
-    font-size: clamp(36px, 10.5vw, 44px);
+    font-size: clamp(28px, 7.9vw, 36px);
     letter-spacing: -0.04em;
   }
 
@@ -272,9 +273,10 @@
     height: auto;
   }
 
-  /* No mobile a família vem antes do título */
+  /* No mobile a família vem antes do título, 20px mais perto do logo */
   .pk-hero__figure {
     order: -1;
     width: min(100%, 340px);
+    margin-top: -20px;
   }
 }

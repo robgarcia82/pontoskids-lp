@@ -6,6 +6,8 @@
 
 html {
   scroll-behavior: smooth;
+  /* Mesma cor do topo do hero: no iOS, a barra do Safari e o overscroll ficam contínuos com a página */
+  background: #eef4ff;
 }
 
 html,
